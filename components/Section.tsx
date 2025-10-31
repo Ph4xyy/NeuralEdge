@@ -3,13 +3,14 @@ import { cn } from "@/lib/utils"
 
 interface SectionProps {
   children: ReactNode
+  id?: string
   className?: string
   containerClassName?: string
 }
 
-export function Section({ children, className, containerClassName }: SectionProps) {
+export function Section({ children, id, className, containerClassName }: SectionProps) {
   return (
-    <section className={cn("py-24", className)}>
+    <section id={id} className={cn("py-24", className)}>
       <div className={cn("container max-w-screen-xl mx-auto px-4", containerClassName)}>
         {children}
       </div>
