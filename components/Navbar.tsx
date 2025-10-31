@@ -13,6 +13,8 @@ export function Navbar() {
   const [theme, setTheme] = useState<"dark" | "light">("dark")
 
   useEffect(() => {
+    if (typeof window === "undefined") return
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
     }
@@ -21,6 +23,8 @@ export function Navbar() {
   }, [])
 
   useEffect(() => {
+    if (typeof document === "undefined") return
+    
     const root = document.documentElement
     if (theme === "dark") {
       root.classList.add("dark")

@@ -12,6 +12,8 @@ export function Spotlight() {
   const y = useSpring(mouseY, springConfig)
 
   useEffect(() => {
+    if (typeof window === "undefined") return
+    
     setMounted(true)
 
     const handleMouseMove = (e: MouseEvent) => {

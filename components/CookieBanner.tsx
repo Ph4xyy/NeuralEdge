@@ -8,6 +8,8 @@ export function CookieBanner() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
+    if (typeof document === "undefined") return
+    
     const consent = document.cookie
       .split("; ")
       .find((row) => row.startsWith("cookie-consent="))
@@ -18,7 +20,9 @@ export function CookieBanner() {
   }, [])
 
   const handleAccept = () => {
-    document.cookie = "cookie-consent=accepted; path=/; max-age=31536000"
+    if (typeof document !== "undefined") {
+      document.cookie = "cookie-consent=accepted; path=/; max-age=31536000"
+    }
     setShow(false)
   }
 
