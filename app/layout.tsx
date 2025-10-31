@@ -27,10 +27,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
-  },
+  // Icons are automatically handled by Next.js via app/icon.svg
 }
 
 export default function RootLayout({
